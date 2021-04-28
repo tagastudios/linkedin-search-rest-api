@@ -19,4 +19,9 @@ router.post("/", courseController.course_post);
 // DELETE COURSE
 router.delete("/:id", courseController.course_delete);
 
+// 404
+router.use((req, res) => {
+  res.status(404).render("404", { title: "404 - API Course not found" });
+});
+
 module.exports = router;

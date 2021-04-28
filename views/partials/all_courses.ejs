@@ -1,0 +1,30 @@
+<% if (courses.length> 0) { %>
+  <% courses.forEach((course)=> { %>
+    <div class="course">
+      <img src="<%= course.cover %>" alt="Cover Image for <%= course.title %>" />
+      <div class="course-content">
+        <a href="/courses/<%= course._id %>">
+          <h2>
+            <%= course.title %>
+          </h2>
+        </a>
+        <h4>
+          <% skillURL=course.classifications.map(function(skill) { if (skill.associatedClassification.type=="SKILL" ) {
+            return '<a href="/courses?search=' + skill.associatedClassification.name.value + '">#' +
+            skill.associatedClassification.name.value + '</a>' ; } else { return "" } }) -%>
+            <p>
+              <%- skillURL.filter(i=>
+                i != "").join(" | ") %>
+            </p>
+        </h4>
+        <p class=" course-content-description ">
+          <%= course.shortDescription %>
+        </p>
+      </div>
+    </div>
+    <br />
+
+    <% }) %>
+      <% } else { %>
+        <h3 style="text-align: center;">Ooppss.. Looks like something went wrong..</h3>
+        <% } %>

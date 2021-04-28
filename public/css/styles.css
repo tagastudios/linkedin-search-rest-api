@@ -1,0 +1,392 @@
+/*
+
+GENERAL STYLES
+
+*/
+
+html,
+body {
+  background-color: #fafafa;
+  margin: 0;
+  padding: 0;
+}
+
+footer {
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+input {
+  animation-name: anim;
+  animation-duration: 8s;
+  animation-iteration-count: infinite;
+}
+
+input[type="search"] {
+  background: #ededed url("/img/search.svg") no-repeat 9px center;
+  padding: 9px 10px 9px 32px;
+  border-radius: 15em;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  transition: all 0.5s;
+  outline: none;
+  margin-top: 50px;
+  border-width: 5px;
+}
+
+input[type="search"]:focus {
+  padding-left: 32px;
+  color: #000;
+  background-color: #fff;
+}
+
+.container {
+  padding: 0 2rem;
+}
+
+.search-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: calc(100% - 4rem);
+  padding: 1rem 2rem;
+  background-color: #f7f7f7;
+  box-shadow: black 0px -2px 5px 0px;
+  z-index: 1;
+  position: relative;
+}
+
+.search-nav form {
+  flex: 1;
+  padding: 0 2rem;
+  max-width: 800px;
+  margin-bottom: 0px;
+}
+
+.search-nav input {
+  margin-top: 0 !important;
+  width: 100%;
+}
+
+.search-nav img {
+  width: 20vw;
+  max-width: 200px;
+}
+
+.search-nav a:last-child img {
+  width: 40px;
+}
+
+.deleteBtn {
+  background-color: rgb(255, 231, 231);
+  padding: 0.5rem 1rem;
+  border: crimson 5px inset;
+  border-radius: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 300px;
+  margin-top: 2rem;
+  cursor: pointer;
+}
+
+.deleteBtn div {
+  font-size: 0.8rem;
+}
+
+.deleteBtn:hover {
+  background-color: rgb(185, 0, 0);
+  color: white;
+  font-weight: 700;
+}
+
+/*
+
+HOME PAGE
+
+*/
+
+.search-home {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fafafa;
+  height: calc(100vh - 50px);
+  flex-direction: column;
+  margin: 0;
+}
+
+.search-home img {
+  width: 400px;
+}
+
+.search-home input {
+  width: 500px;
+}
+
+.search-home input:focus {
+  width: 600px;
+}
+
+/*
+
+COURSES PAGE
+
+*/
+
+.courses {
+  margin-top: 2rem;
+}
+
+.course {
+  background-color: whitesmoke;
+  display: flex;
+  border-radius: 25px;
+  width: 100%;
+  /* max-height: 220px; */
+  min-height: 165px;
+}
+
+.course:hover {
+  content: ">";
+  border: #4c70b6 solid 2.5px;
+  background-color: #e6e1e1;
+  margin: -2.5px;
+}
+
+.course img {
+  width: 200px;
+  border-radius: 20px 0 0 20px;
+  object-fit: fill;
+}
+
+.course-content {
+  padding: 0 20px;
+}
+
+.course-content a {
+  color: #d67010;
+}
+
+.course-content h4,
+.course-content h4 p {
+  margin: 0;
+}
+
+.course-content-description {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.course-content h4 a {
+  /* color: #e74729; */
+  color: #888;
+}
+
+.course-content h4 a:nth-child(2) {
+  /* color: #17639b; */
+  color: #666;
+}
+
+.course-content h4 a:nth-child(3) {
+  /* color: #964cb6; */
+  color: #444;
+}
+
+.course-content h2 {
+  margin-bottom: 0.5rem;
+}
+
+.course-content a h2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/*
+
+COURSES DETAILS PAGE
+
+*/
+
+.course-detail {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  text-align: center;
+}
+
+.course-detail img {
+  width: 100%;
+}
+
+.course-detail-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.course-detail-info h2 {
+  font-size: 2rem;
+  font-weight: 800;
+}
+
+.course-detail-info h4 {
+  margin: 0;
+}
+
+.course-detail-info h4 a {
+  /* color: #e74729; */
+  color: rgb(246, 192, 130);
+}
+
+.course-detail-info h4 a:nth-child(2) {
+  /* color: #17639b; */
+  color: rgb(205, 170, 42);
+}
+
+.course-detail-info h4 a:nth-child(3) {
+  /* color: #964cb6; */
+  color: rgb(141, 116, 24);
+}
+
+/*
+
+MEDIA QUERIES
+
+*/
+
+@media only screen and (min-width: 768px) {
+  .course-detail-info {
+    justify-content: space-between;
+  }
+  .course-detail img {
+    max-width: 500px;
+  }
+  .course img {
+    width: 150px;
+    height: auto;
+    max-height: 180px;
+    object-fit: fill;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .course-detail {
+    flex-direction: column;
+  }
+  .course img {
+    width: 150px;
+    height: auto;
+    max-height: 180px;
+    object-fit: fill;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .search-home img {
+    width: 50vw;
+    max-width: 100vh;
+  }
+  .search-home input {
+    width: 50vw;
+  }
+  .search-home input:focus {
+    width: 80vw;
+  }
+  .course img {
+    width: 150px;
+    height: auto;
+    max-height: 180px;
+    object-fit: fill;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .search-nav img {
+    max-width: 200px;
+  }
+  .search-nav form {
+    padding: 0 1rem;
+  }
+  .course img {
+    width: 150px;
+    height: auto;
+    max-height: 180px;
+    object-fit: fill;
+  }
+  .course-content-description {
+    font-size: 1rem;
+  }
+  .course-content a h2 {
+    font-size: 1.1rem;
+  }
+}
+
+/*
+
+ANIMATIONS
+
+*/
+
+@keyframes anim {
+  0% {
+    border-color: #f4f4f4;
+  } /*Amarillo*/
+  15% {
+    border-color: #fbbb85;
+  } /*Naranja*/
+  30% {
+    border-color: #e74729;
+  } /*Negro*/
+  45% {
+    border-color: #fecc41;
+  }
+  60% {
+    border-color: #8495cc;
+  } /*Otra vez naranja*/
+  75% {
+    border-color: #7cc144;
+  } /*Otra vez amarillo*/
+  90% {
+    border-color: #4c70b6;
+  } /*Otra vez amarillo*/
+  100% {
+    border-color: #f4f4f4;
+  }
+}
+
+/*  WORKBAY LOGO COLOR PALETTE
+
+fbbb85
+f78936
+
+f57b73
+e74729
+
+fbba85
+fecc41
+
+a3d285
+7cc144
+
+8495cc
+4c70b6
+
+79d0e0
+17639b
+
+b18fc2
+8176b6
+
+fefefe
+e6e6e6 */

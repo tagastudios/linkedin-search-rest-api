@@ -1,0 +1,8 @@
+# Dependency directories
+node_modules/
+
+# Env
+.Env
+
+# Notes
+config.txt

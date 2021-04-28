@@ -1,0 +1,61 @@
+<html lang="en">
+
+<%- include('./partials/head.ejs') %>
+
+  <body>
+
+    <%- include('./partials/nav.ejs') %>
+
+      <section class="course-detail">
+        <img src="<%= course.cover %>" alt="Cover Image for <%= course.title %>" />
+        <div class="course-detail-info container">
+          <h2>
+            <%= course.title %>
+          </h2>
+
+          <% skillURL=course.classifications.map(function(skill) { if (skill.associatedClassification.type=="SKILL" ) {
+            return '<a href="/courses?search=' + skill.associatedClassification.name.value + '">#' +
+            skill.associatedClassification.name.value + '</a>' ; } else { return "" } }) -%>
+
+            <h4>
+              <%- skillURL.filter(i=>
+                i != "").join(" | ") %>
+            </h4>
+
+            <p>
+              <%= course.description %>
+            </p>
+            <!-- <a class=" deleteBtn" data-doc="<%=course._id%>">
+            Delete this course
+            <div>
+              <%= course._id %>
+            </div>
+            </a> -->
+        </div>
+      </section>
+
+      <%- include('./partials/footer.ejs') %>
+
+        <script>
+          const trash = document.querySelector('.deleteBtn');
+
+          trash.addEventListener('click', (e) => {
+            const endpoint = `/courses/${trash.dataset.doc}`;
+
+            fetch(endpoint, {
+              method: 'DELETE'
+            })
+              .then((response) => {
+                response.json()
+                  .then((data) => {
+                    location.href = data.redirect
+                  })
+              })
+              .catch((err) => {
+                console.log(err)
+              })
+          })
+        </script>
+  </body>
+
+</html>

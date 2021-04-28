@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('./partials/head.ejs') %>
+
+  <body>
+
+    <%- include('./partials/nav.ejs') %>
+
+      <section class="courses container">
+        <% console.log(courses.elements[0].details) %>
+          <% if (!courses.elements.lenght> 0) { %>
+            <% courses.elements.forEach((course)=> { %>
+              <div class="course">
+                <img src='<%= course.details.images.primary  %> ' alt="Cover Image for <%= course.title.value %>" />
+                <div class="course-content">
+                  <a href="/api/courses/<%= course._id %>">
+                    <h2>
+                      <%= course.title.value %>
+                    </h2>
+                  </a>
+                  <p class=" course-content-description ">
+                    <%= course.details.description.value %>
+                  </p>
+                </div>
+              </div>
+              <br />
+              <% }) %>
+                <% } else { %>
+                  <h3>Loading Courses...</h3>
+                  <% } %>
+
+      </section>
+
+      <%- include('./partials/footer.ejs') %>
+
+  </body>
+
+</html>

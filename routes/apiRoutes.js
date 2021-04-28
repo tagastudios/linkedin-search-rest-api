@@ -18,7 +18,7 @@ router.get("/skill/:id", apiController.api_skill_course);
 
 // 404
 router.use((req, res) => {
-  res.status(404).render("404", { title: "404 - API Route not found" });
+  res.status(404).send("404 - API Route not found");
 });
 
 module.exports = router;

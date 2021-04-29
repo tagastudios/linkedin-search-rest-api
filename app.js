@@ -10,6 +10,11 @@ require("dotenv/config");
 const app = express();
 app.use(cors());
 
+// middleware & static files
+app.use(express.static(__dirname + "/public"));
+app.use(express.urlencoded({ extended: true }));
+app.use(morgan("dev"));
+
 // connect to mongodb
 mongoose
   .connect(process.env.DB_CONNECTION, {
@@ -25,11 +30,6 @@ mongoose
 
 // register view engine
 app.set("view engine", "ejs");
-
-// middleware & static files
-app.use(express.static("public"));
-app.use(express.urlencoded({ extended: true }));
-app.use(morgan("dev"));
 
 // Page Views Routing
 app.get("/", (req, res) => {

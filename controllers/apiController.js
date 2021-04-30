@@ -53,7 +53,7 @@ const api_skills = (req, res) => {
         }
       });
 
-      let uniqueSkills = [...new Set(skills)];
+      let uniqueSkills = [...new Set(skills)].sort();
       res.json(uniqueSkills);
     })
     .catch((err) => {

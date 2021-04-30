@@ -2,7 +2,7 @@ const Course = require("../models/courses");
 
 // GET INDEX AND REDIRECT
 const api_index = (req, res) => {
-  res.redirect("/api/courses");
+  res.redirect("/api/skills");
 };
 
 // GET COURSES
@@ -13,7 +13,7 @@ const api_courses = (req, res) => {
       res.send(result);
     })
     .catch((err) => {
-      console.log(err);
+      console.log("Error Courses - 1");
     });
 };
 
@@ -42,16 +42,19 @@ const api_skills = (req, res) => {
             }
             if (i == result.length - 1) {
               let uniqueSkills = [...new Set(skills)];
-              res.send(JSON.stringify(uniqueSkills));
+              res.json(uniqueSkills);
+              // res.status(200).json({ uniqueSkills });
             }
           }
         });
       } catch (err) {
-        console.log(err);
+        console.log("Error Skills - 1");
+        res.status(500).json({ err });
       }
     })
     .catch((err) => {
-      console.log(err);
+      console.log("Error Skills - 2");
+      res.status(500).json({ err });
     });
 };
 
@@ -65,9 +68,10 @@ const api_skill_course = (req, res) => {
     },
   })
     .then((result) => {
-      res.send(result);
+      res.status(200).json(result);
     })
     .catch((err) => {
+      console.log("Error Skill > Course");
       res.status(404).send("Skill not found -> " + skill);
     });
 };
